@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
-
-
-
+import Main from './main.js';
 import './App.css';
 
 const App = () => {
   const [ launchData, setLaunchData ] = useState( [] );
-  // const [ launchYearsToDisplay, setLaunchYearsToDisplay ] = useState( [] )
+  const [ launchYearsToDisplay, setLaunchYearsToDisplay ] = useState( [] )
 
   useEffect(() => {
     fetch('https://api.spacexdata.com/v4/launches')
@@ -14,7 +12,7 @@ const App = () => {
     .then(( results ) => {
         const sortLaunches = results.sort(( a, b ) => a.flight_number - b.flight_number)
         setLaunchData( sortLaunches );
-        // setLaunchYearsToDisplay( sortLaunches );
+        setLaunchYearsToDisplay( sortLaunches );
         return results;
     })
     .catch((error) => console.error( error ))
@@ -25,6 +23,7 @@ const App = () => {
   return (
     <div className="App">
       <h1>Space X Tracker</h1>
+      <Main />
     </div>
   );
 }
