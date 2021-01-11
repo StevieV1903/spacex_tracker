@@ -23,7 +23,12 @@ const App = () => {
   return (
     <div className="App">
       <h1>Space X Tracker</h1>
-      <Main />
+      <Main 
+        launchData={launchData} 
+        setLaunchData={setLaunchData} 
+        launchYearsToDisplay={launchYearsToDisplay} 
+        setLaunchYearsToDisplay={setLaunchYearsToDisplay}
+      />
     </div>
   );
 }
