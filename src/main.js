@@ -7,16 +7,27 @@ const Main = ({ launchData, setLaunchData, launchYearsToDisplay, setLaunchYearsT
         const requiredLaunchDetails = launchYearsToDisplay.map( (launch, index) => {
             return( 
                 <div key={index} className="launch-list-container">
-                    <ul className="launch-list">
-                        <li className="launch-list-flight-number">#{launch.flight_number}</li>
-                        <li className="launch-list-name">{launch.name}</li>
-                        {/* <li className="launch-list-date">{convertDateFromUnixTimeStamp(launch.date_unix)}</li> */}
+                        <div className="launch-list-flight-number">
+                            <p>#{launch.flight_number}</p>
+                        </div>
+                        <div className="launch-list-name">
+                            <p>{launch.name}</p>
+                        </div>
+                        <div className="launch-list-date">
+                            <p>{convertDateFromUnixTimeStamp(launch.date_unix)}</p>
+                        </div>
                         {/* <li className="launch-list-rocketID">{displayRocketName(launch.rocket)}</li> */}
-                    </ul>
-                </div> 
+                </div>
             )
         })
         return requiredLaunchDetails   
+    };
+
+    const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
+    const convertDateFromUnixTimeStamp = (timestamp) => {
+        let date = new Date(timestamp * 1000)
+        let formattedDate = date.toLocaleDateString("en-GB", options)
+        return formattedDate
     };
 
     return(

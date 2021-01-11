@@ -1,0 +1,27 @@
+.launch-list-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    margin: 10px;
+    border: solid 1px grey;
+    border-radius: 10px;
+    background-color: beige;
+    padding: 10px;
+}
+
+.launch-list {
+
+}
+
+.launch-list-flight-number {
+    font-size: 30px;
+
+}
+
+.launch-list-name {
+    
+}
+
+.launch-list-date {
+
+}
