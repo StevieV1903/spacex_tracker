@@ -10,7 +10,8 @@ const App = () => {
     fetch('https://api.spacexdata.com/v4/launches')
     .then(( res ) => res.json())
     .then(( results ) => {
-        const sortLaunches = results.sort(( a, b ) => a.flight_number - b.flight_number)
+        // const sortLaunches = results.sort(( a, b ) => a.flight_number - b.flight_number)
+        const sortLaunches = results.sort(( a, b ) => a.date_unix - b.date_unix)
         setLaunchData( sortLaunches );
         setLaunchYearsToDisplay( sortLaunches );
         return results;
