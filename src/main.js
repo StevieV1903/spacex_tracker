@@ -1,7 +1,11 @@
 import React from 'react';
 import './main.css';
 
-const Main = ({ launchData, setLaunchData, launchYearsToDisplay, setLaunchYearsToDisplay }) => {
+const Main = ({ 
+    // launchData, 
+    // setLaunchData, 
+    launchYearsToDisplay, 
+    setLaunchYearsToDisplay }) => {
 
     const getDataForEachLaunch = () => {
         const requiredLaunchDetails = launchYearsToDisplay.map( (launch, index) => {

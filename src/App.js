@@ -3,7 +3,7 @@ import Main from './main.js';
 import './App.css';
 
 const App = () => {
-  const [ launchData, setLaunchData ] = useState( [] );
+  // const [ launchData, setLaunchData ] = useState( [] );
   const [ launchYearsToDisplay, setLaunchYearsToDisplay ] = useState( [] )
 
   useEffect(() => {
@@ -12,7 +12,7 @@ const App = () => {
     .then(( results ) => {
         // const sortLaunches = results.sort(( a, b ) => a.flight_number - b.flight_number)
         const sortLaunches = results.sort(( a, b ) => a.date_unix - b.date_unix)
-        setLaunchData( sortLaunches );
+        // setLaunchData( sortLaunches );
         setLaunchYearsToDisplay( sortLaunches );
         return results;
     })
@@ -25,8 +25,8 @@ const App = () => {
     <div className="App">
       <h1>Space X Tracker</h1>
       <Main 
-        launchData={launchData} 
-        setLaunchData={setLaunchData} 
+        // launchData={launchData} 
+        // setLaunchData={setLaunchData} 
         launchYearsToDisplay={launchYearsToDisplay} 
         setLaunchYearsToDisplay={setLaunchYearsToDisplay}
       />
