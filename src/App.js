@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Main from './main.js';
+import Header from './header.js';
 import spaceImage from '../src/assets/spaceimage.png';
 import './App.css';
 
@@ -24,6 +25,7 @@ const App = () => {
 
   return (
     <div className="app">
+      <Header />
       <h1>Space X Tracker</h1>
       <div className="app-container">
       <img className="app-image" src={ spaceImage }/>

@@ -35,9 +35,11 @@ const Main = ({
     };
 
     return(
-    <div>
-        <p>{getDataForEachLaunch()}</p>
-    </div>
+    <>
+        <div className="launch-data-container">
+            <p>{getDataForEachLaunch()}</p>
+        </div>
+    </>
     )
 
 

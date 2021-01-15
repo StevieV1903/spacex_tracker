@@ -1,0 +1,10 @@
+.header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
+.spacex-logo {
+    justify-self: left;
+    width: 250px;
+    padding: 20px;
+}
