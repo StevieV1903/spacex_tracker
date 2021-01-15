@@ -22,12 +22,14 @@
     font-size: 20px;
     justify-self: left;
     margin-left: 20px;
+    color: #3d3d3d;
     
 }
 
 .launch-list-date {
     color: grey;
     font-size: 12px;
+    padding-bottom: 5px;
     justify-self: right;
     /* margin-right: 10px; */
 
@@ -46,4 +48,9 @@
     grid-template-columns: 1fr;
     align-items: center;
     text-align: right;
+}
+.launch-list-rocketID {
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
 }
