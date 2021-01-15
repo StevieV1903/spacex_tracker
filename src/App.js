@@ -26,7 +26,6 @@ const App = () => {
   return (
     <div className="app">
       <Header />
-      <h1>Space X Tracker</h1>
       <div className="app-container">
       <img className="app-image" src={ spaceImage }/>
       <Main 

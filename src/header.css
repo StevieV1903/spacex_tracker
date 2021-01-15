@@ -2,9 +2,26 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
+    height: 120px;
 }
 .spacex-logo {
     justify-self: left;
     width: 250px;
     padding: 20px;
+}
+.reset-button {
+    justify-self: right;
+    width: fit-content;
+    background-color: rgb(0, 0, 51);
+    border: solid 1px white;
+    border-radius: 10px;
+    padding: 10px;
+    
+    
+}
+.reset-button > a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    
 }
