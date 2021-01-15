@@ -1,13 +1,20 @@
 .header {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 0.5fr 1fr 1fr;
     align-items: center;
-    height: 120px;
+    height: 100px;
 }
 .spacex-logo {
-    justify-self: left;
+    justify-self: right;
     width: 250px;
-    padding: 20px;
+    padding-left: 20px;
+}
+.header-title {
+    font-size: 22px;
+    color: grey;
+    padding-top: 15px;
+    justify-self: left;
+    
 }
 .reset-button {
     justify-self: right;
@@ -20,7 +27,7 @@
 .reset-button > a {
     text-decoration: none;
     color: white;
-    font-size: 20px;
+    font-size: 18px;
     
 }
 .refresh {

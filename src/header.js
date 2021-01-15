@@ -9,6 +9,7 @@ const Header = () => {
 <>
         <div className="header">
             <img className="spacex-logo" src={ logo } alt="logo"/>
+            <p className="header-title">LAUNCHES</p>
             <button className="reset-button"><a href='/'>Reload Data </a><img className="refresh" src={ refresh }/></button>
         </div>
 </>

@@ -1,25 +1,25 @@
 .launch-list-container {
     display: grid;
-    grid-template-columns: 0.5fr 2fr 1fr;
+    grid-template-columns: 0.5fr 2fr 2fr;
     align-items: center;
     margin: 15px 15px;
     border: solid 1px rgb(0, 0, 0);
     border-radius: 10px;
-    background-color: #fffff2;
+    background-color: #f1f1f1;
     padding: 10px;
     box-shadow: 5px 5px 8px #c0c0c0;
 }
 
 .launch-list-flight-number {
-    font-size: 26px;
+    font-size: 20px;
     justify-self: left;
-    margin-left: 20px;
+    margin-left: 10px;
     font-weight: bold;
 
 }
 
 .launch-list-name {
-    font-size: 24px;
+    font-size: 20px;
     justify-self: left;
     margin-left: 20px;
     
@@ -27,7 +27,9 @@
 
 .launch-list-date {
     color: grey;
-    font-size: 18px;
+    font-size: 12px;
+    justify-self: right;
+    margin-right: 10px;
 
 }
 
