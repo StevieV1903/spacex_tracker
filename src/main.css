@@ -29,7 +29,7 @@
     color: grey;
     font-size: 12px;
     justify-self: right;
-    margin-right: 10px;
+    /* margin-right: 10px; */
 
 }
 
@@ -40,4 +40,10 @@
     max-height: 100vh;
     background-color: #eeeeee;
     overflow: auto;
+}
+.rocket-date-name {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    text-align: right;
 }
