@@ -27,10 +27,10 @@
 .reset-button > a {
     text-decoration: none;
     color: white;
-    font-size: 18px;
+    font-size: 14px;
     
 }
 .refresh {
-    height: 20px;
+    height: 18px;
     vertical-align: text-bottom;
 }
