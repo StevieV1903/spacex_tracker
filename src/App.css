@@ -1,5 +1,14 @@
-.App {
+.app {
   text-align: center;
+}
+.app-container {
+  display: grid;
+  grid-template-columns: 1.5fr 3fr;
+}
+
+.app-image {
+  max-height: 100vh;
+  margin: 10px 30px;
 }
 
 /* .App-logo {

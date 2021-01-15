@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Main from './main.js';
+import spaceImage from '../src/assets/spaceimage.png';
 import './App.css';
 
 const App = () => {
@@ -22,14 +23,17 @@ const App = () => {
 
 
   return (
-    <div className="App">
+    <div className="app">
       <h1>Space X Tracker</h1>
+      <div className="app-container">
+      <img className="app-image" src={ spaceImage }/>
       <Main 
         // launchData={launchData} 
         // setLaunchData={setLaunchData} 
         launchYearsToDisplay={launchYearsToDisplay} 
         setLaunchYearsToDisplay={setLaunchYearsToDisplay}
       />
+      </div>
     </div>
   );
 }
