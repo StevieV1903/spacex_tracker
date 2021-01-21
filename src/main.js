@@ -11,7 +11,7 @@ const Main = ({
     const [ rocketLaunchDates, setRocketLaunchDates ] = useState( [] )
 
     useEffect(() => {
-        // getUniqueDatesForFilter()
+        getUniqueDatesForFilter()
         getRocketName()
         
     }, [] )
@@ -70,15 +70,59 @@ const Main = ({
     const displayRocketName = ( rocketId ) => {
         const rocketName = rocketIdData.filter( rocket => rocket.id === rocketId)
         return rocketName[0].name
-    }
+    };
+
+    const getUniqueDatesForFilter = () => {
+        const retrievedYearsForFilter = [];
+        const dateUtcFromLaunches = launchData.map( (launch) => launch.date_utc)
+        const launchYearFromDates = dateUtcFromLaunches.map((launchDate) => {
+        const launchYear = launchDate.slice(0, 4)
+        if( retrievedYearsForFilter.includes( launchYear ) === false){
+            retrievedYearsForFilter.push( launchYear )
+        }})
+            setRocketLaunchDates( retrievedYearsForFilter );  
+            // console.log("Unique Years State", rocketLaunchDates) 
+    };
+
+    const displayUniqueDatesinSelectMenu = () => {
+        const selectMenuOptions = rocketLaunchDates.map(( rocketLaunchDate, index ) => (
+            <option key={ index } value={ rocketLaunchDate }>
+                { rocketLaunchDate }
+            </option>
+        ));
+        return(
+            <div>
+                <p>Filter Launches by Year</p>
+                <select onChange={(event) => filterLaunchesByUniqueYear(event.target.value)}>
+                    { selectMenuOptions }
+                    <option value="All Dates">All Launches</option>
+                </select>
+            </div>
+        );
+    };
+
+    const filterLaunchesByUniqueYear = (uniqueYear) => {
+        if (uniqueYear === 'All Dates') {
+            setLaunchYearsToDisplay(launchData)
+            // setLaunchYearsToDisplay(launchData);
+        } else {
+            const filteredDates = launchData.filter(( launch ) => launch.date_utc.slice(0,4) === uniqueYear);
+            setLaunchYearsToDisplay( filteredDates )
+            // setLaunchYearsToDisplay(filteredDates);
+        }
+    };
+
 
     return(
     <>
+    <div>
+    {displayUniqueDatesinSelectMenu()}
         <div className="launch-data-container">
             {rocketIdData.length !== 0 &&
             <p>{getDataForEachLaunch()}</p>
             }
         </div>
+    </div>
     </>
     )
 

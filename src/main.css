@@ -39,7 +39,7 @@
     border: 1px solid black;
     margin: 10px;
     border-radius: 10px;
-    max-height: 100vh;
+    max-height: 80vh;
     background-color: #eeeeee;
     overflow: auto;
 }
