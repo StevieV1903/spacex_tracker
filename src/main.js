@@ -92,10 +92,12 @@ const Main = ({
         ));
         return(
             <div className="filter-container">
-                <p>Filter Launches by Year</p>
+                {/* <p>Filter Launches by Year</p> */}
                 <select onChange={(event) => filterLaunchesByUniqueYear(event.target.value)}>
                     { selectMenuOptions }
                     <option value="All Dates">All Launches</option>
+                    <option selected disabled>Filter Launches by Year</option>
+                    
                 </select>
             </div>
         );
