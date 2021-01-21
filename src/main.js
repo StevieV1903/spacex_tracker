@@ -91,7 +91,7 @@ const Main = ({
             </option>
         ));
         return(
-            <div>
+            <div className="filter-container">
                 <p>Filter Launches by Year</p>
                 <select onChange={(event) => filterLaunchesByUniqueYear(event.target.value)}>
                     { selectMenuOptions }
