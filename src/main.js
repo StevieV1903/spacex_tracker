@@ -8,6 +8,7 @@ const Main = ({
     setLaunchYearsToDisplay }) => {
 
     const [ rocketIdData, setRocketIdData ] = useState( [] )
+    const [ rocketLaunchDates, setRocketLaunchDates ] = useState( [] )
 
     useEffect(() => {
         // getUniqueDatesForFilter()
