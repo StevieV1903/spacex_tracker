@@ -87,7 +87,7 @@ const Main = ({
     const displayUniqueDatesinSelectMenu = () => {
         const selectMenuOptions = rocketLaunchDates.map(( rocketLaunchDate, index ) => (
             <option key={ index } value={ rocketLaunchDate }>
-                { rocketLaunchDate }
+                Launches in { rocketLaunchDate }
             </option>
         ));
         return(
