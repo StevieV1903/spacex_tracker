@@ -3,7 +3,7 @@
     grid-template-columns: 0.5fr 2fr 2fr;
     align-items: center;
     margin: 15px 15px;
-    border: solid 1px rgb(0, 0, 0);
+    /* border: solid 1px rgb(0, 0, 0); */
     border-radius: 10px;
     background-color: #f1f1f1;
     padding: 10px;
@@ -36,11 +36,11 @@
 }
 
 .launch-data-container {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     margin: 10px;
     border-radius: 10px;
     max-height: 80vh;
-    background-color: #eeeeee;
+    background-color: white;
     overflow: auto;
 }
 .rocket-date-name {

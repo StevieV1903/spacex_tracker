@@ -97,7 +97,6 @@ const Main = ({
                     { selectMenuOptions }
                     <option value="All Dates">All Launches</option>
                     <option selected disabled>Filter Launches by Year</option>
-                    
                 </select>
             </div>
         );
@@ -106,29 +105,47 @@ const Main = ({
     const filterLaunchesByUniqueYear = (uniqueYear) => {
         if (uniqueYear === 'All Dates') {
             setLaunchYearsToDisplay(launchData)
-            // setLaunchYearsToDisplay(launchData);
+
         } else {
             const filteredDates = launchData.filter(( launch ) => launch.date_utc.slice(0,4) === uniqueYear);
             setLaunchYearsToDisplay( filteredDates )
-            // setLaunchYearsToDisplay(filteredDates);
+            
         }
+    };
+
+    const handleAscending = () => {
+        const sortAscending = launchYearsToDisplay.sort(( a, b ) => a.flight_number - b.flight_number)
+        console.log("sortascending", sortAscending)
+        setLaunchYearsToDisplay( sortAscending );
+        return launchYearsToDisplay;
+    };
+
+    const handleDescending = () => {
+        const sortDescending = launchYearsToDisplay.sort(( a, b ) => b.flight_number - a.flight_number)
+        console.log("sortdescending", sortDescending)
+        setLaunchYearsToDisplay( sortDescending );
+        return launchYearsToDisplay; 
     };
 
 
     return(
     <>
+
     <div>
-    {displayUniqueDatesinSelectMenu()}
+        <div>
+        <button className="ascending" onClick={ handleAscending }>Sort Ascending</button>
+        <button className="descending" onClick={ handleDescending }>Sort Descending</button>
+        {displayUniqueDatesinSelectMenu()}
+        </div>
         <div className="launch-data-container">
             {rocketIdData.length !== 0 &&
-            <p>{getDataForEachLaunch()}</p>
+            getDataForEachLaunch()
             }
         </div>
     </div>
+    
     </>
     )
-
-
 };
 
 export default Main;
