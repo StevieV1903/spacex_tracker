@@ -1,7 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto+Slab:wght@400;700&display=swap');
+
 .app {
   text-align: center;
   margin: 0;
   padding: 10px;
+  /* font-family: 'Lato', sans-serif; */
+  font-family: 'Roboto Slab', serif;
 }
 .app-container {
   display: grid;
