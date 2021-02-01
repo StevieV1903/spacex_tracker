@@ -122,14 +122,11 @@ const Main = ({
         
     };
 
-
-
     const handleDescending = () => {
         const sortLaunchesDescending = launchYearsToDisplay.sort(( a, b ) => b.flight_number - a.flight_number)
         //creates new Array to refresh page
         const sortedDescending = [ ...sortLaunchesDescending ]
         setLaunchYearsToDisplay( sortedDescending );
-        // return launchYearsToDisplay; 
     };
 
 
@@ -137,9 +134,14 @@ const Main = ({
     <>
 
     <div>
-        <div>
+        <div className="button-container">
+        <button className="ascending" 
+        // onClick={ handleSortToggle }
+        >
+            Sort Toggle
+            </button>
         <button className="ascending" onClick={ handleAscending }>Sort Ascending</button>
-        <button className="descending" onClick={ handleDescending }>Sort Descending</button>
+        <button className="ascending" onClick={ handleDescending }>Sort Descending</button>
         {displayUniqueDatesinSelectMenu()}
         </div>
         <div className="launch-data-container">
