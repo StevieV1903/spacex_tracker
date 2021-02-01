@@ -16,6 +16,7 @@ const Main = ({
         
     }, [] )
 
+
     const getRocketName = () => {
         const rocketIds = []
         launchData.forEach( launch => {
@@ -114,17 +115,21 @@ const Main = ({
     };
 
     const handleAscending = () => {
-        const sortAscending = launchYearsToDisplay.sort(( a, b ) => a.flight_number - b.flight_number)
-        console.log("sortascending", sortAscending)
-        setLaunchYearsToDisplay( sortAscending );
-        return launchYearsToDisplay;
+        const sortLaunchesAscending = launchYearsToDisplay.sort(( a, b ) => a.flight_number - b.flight_number)
+        //creates new Array to refresh page
+        const sortedAscending = [ ...sortLaunchesAscending]
+        setLaunchYearsToDisplay( sortedAscending );
+        
     };
 
+
+
     const handleDescending = () => {
-        const sortDescending = launchYearsToDisplay.sort(( a, b ) => b.flight_number - a.flight_number)
-        console.log("sortdescending", sortDescending)
-        setLaunchYearsToDisplay( sortDescending );
-        return launchYearsToDisplay; 
+        const sortLaunchesDescending = launchYearsToDisplay.sort(( a, b ) => b.flight_number - a.flight_number)
+        //creates new Array to refresh page
+        const sortedDescending = [ ...sortLaunchesDescending ]
+        setLaunchYearsToDisplay( sortedDescending );
+        // return launchYearsToDisplay; 
     };
 
 
@@ -143,7 +148,7 @@ const Main = ({
             }
         </div>
     </div>
-    
+
     </>
     )
 };
