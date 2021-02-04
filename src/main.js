@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './main.css';
+import sort from '../src/assets/sort.png';
+
 
 const Main = ({ 
     launchData, 
@@ -7,8 +9,9 @@ const Main = ({
     launchYearsToDisplay, 
     setLaunchYearsToDisplay }) => {
 
-    const [ rocketIdData, setRocketIdData ] = useState( [] )
-    const [ rocketLaunchDates, setRocketLaunchDates ] = useState( [] )
+    const [ rocketIdData, setRocketIdData ] = useState( [] );
+    const [ rocketLaunchDates, setRocketLaunchDates ] = useState( [] );
+    const [ isSortedDescending, setIsSortedDescending ] = useState( false );
     
 
     useEffect(() => {
@@ -106,7 +109,7 @@ const Main = ({
 
     const filterLaunchesByUniqueYear = (uniqueYear) => {
         if (uniqueYear === 'All Dates') {
-            setLaunchYearsToDisplay(launchData)
+            setLaunchYearsToDisplay( launchData )
 
         } else {
             const filteredDates = launchData.filter(( launch ) => launch.date_utc.slice(0,4) === uniqueYear);
@@ -115,20 +118,51 @@ const Main = ({
         }
     };
 
-    const handleAscending = () => {
-        const sortLaunchesAscending = launchYearsToDisplay.sort(( a, b ) => a.flight_number - b.flight_number)
-        //creates new Array to refresh page
-        const sortedAscending = [ ...sortLaunchesAscending]
-        setLaunchYearsToDisplay( sortedAscending );
+    // const handleAscending = () => {
+    //     const sortLaunchesAscending = launchYearsToDisplay.sort(( a, b ) => a.flight_number - b.flight_number)
+    //     //creates new Array to refresh page
+    //     const sortedAscending = [ ...sortLaunchesAscending]
+    //     setLaunchYearsToDisplay( sortedAscending );
         
-    };
+    // };
 
-    const handleDescending = () => {
-        const sortLaunchesDescending = launchYearsToDisplay.sort(( a, b ) => b.flight_number - a.flight_number)
-        //creates new Array to refresh page
-        const sortedDescending = [ ...sortLaunchesDescending ]
-        setLaunchYearsToDisplay( sortedDescending );
-    };
+    // const handleDescending = () => {
+    //     const sortLaunchesDescending = launchYearsToDisplay.sort(( a, b ) => b.flight_number - a.flight_number)
+    //     //creates new Array to refresh page
+    //     const sortedDescending = [ ...sortLaunchesDescending ]
+    //     setLaunchYearsToDisplay( sortedDescending );
+    // };
+
+    // const handleSortToggle = () => {
+    //     setIsSortedDescending(!isSortedDescending)
+    //     console.log(isSortedDescending)
+    //     if( isSortedDescending === true){
+    //         const sortLaunchesDescending = launchYearsToDisplay.sort(( a, b ) => b.flight_number - a.flight_number)
+    //     //creates new Array to refresh page
+    //     const sortedDescending = [ ...sortLaunchesDescending ]
+    //     setLaunchYearsToDisplay( sortedDescending );
+            
+    //     }else if( isSortedDescending === false){
+    //         const sortLaunchesAscending = launchYearsToDisplay.sort(( a, b ) => a.flight_number - b.flight_number)
+    //     //creates new Array to refresh page
+    //     const sortedAscending = [ ...sortLaunchesAscending]
+    //     setLaunchYearsToDisplay( sortedAscending );
+    //     }
+    // }
+
+    const handleSortToggle = () => {
+        setIsSortedDescending(!isSortedDescending)
+        // console.log(isSortedDescending)
+            const sortingLaunches = 
+            launchYearsToDisplay.sort(function (a, b) {
+                const x = a.flight_number;
+                const y = b.flight_number;
+              return(isSortedDescending ? x - y : y - x);
+            });
+            const sorted = [ ...sortingLaunches]
+            setLaunchYearsToDisplay( sorted );
+            // console.log(launchYearsToDisplay)
+            };
 
 
     return(
@@ -136,19 +170,15 @@ const Main = ({
 
     <div>
         <div className="button-container">
-        <button className="ascending" 
-        // onClick={ handleSortToggle }
-        >
-            Sort Toggle
+            <button className="ascending" onClick={ handleSortToggle }>
+                Sort 
+                <img className="sort" src={ sort } alt="sort"/>  
             </button>
-        <button className="ascending" onClick={ handleAscending }>Sort Ascending</button>
-        <button className="ascending" onClick={ handleDescending }>Sort Descending</button>
         {displayUniqueDatesinSelectMenu()}
         </div>
-        <div className="launch-data-container">
+            <div className="launch-data-container">
             {rocketIdData.length !== 0 &&
-            getDataForEachLaunch()
-            }
+            getDataForEachLaunch()}
         </div>
     </div>
 
