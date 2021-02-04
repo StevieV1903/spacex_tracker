@@ -97,7 +97,6 @@ const Main = ({
         ));
         return(
             <div className="filter-container">
-                {/* <p>Filter Launches by Year</p> */}
                 <select onChange={(event) => filterLaunchesByUniqueYear(event.target.value)}>
                     { selectMenuOptions }
                     <option value="All Dates">All Launches</option>
@@ -113,7 +112,10 @@ const Main = ({
 
         } else {
             const filteredDates = launchData.filter(( launch ) => launch.date_utc.slice(0,4) === uniqueYear);
-            setLaunchYearsToDisplay( filteredDates )
+            const sortedFilteredDates = filteredDates.sort(( a, b ) => a.flight_number - b.flight_number)
+            const filteredSort = [ ...sortedFilteredDates]
+            setLaunchYearsToDisplay( filteredSort )
+            
             
         }
     };
@@ -171,8 +173,7 @@ const Main = ({
     <div>
         <div className="button-container">
             <button className="ascending" onClick={ handleSortToggle }>
-                Sort 
-                <img className="sort" src={ sort } alt="sort"/>  
+                Sort <img className="sort" src={ sort } alt="sort"/>  
             </button>
         {displayUniqueDatesinSelectMenu()}
         </div>
