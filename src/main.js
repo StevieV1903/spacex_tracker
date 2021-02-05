@@ -111,6 +111,7 @@ const Main = ({
             setLaunchYearsToDisplay( launchData )
 
         } else {
+            setIsSortedDescending(false)
             const filteredDates = launchData.filter(( launch ) => launch.date_utc.slice(0,4) === uniqueYear);
             const sortedFilteredDates = filteredDates.sort(( a, b ) => a.flight_number - b.flight_number)
             const filteredSort = [ ...sortedFilteredDates]

@@ -73,9 +73,17 @@ select {
     margin: 0;
     /* margin-left: auto;
     margin-right: auto; */
-    border: 2px solid rgb(0, 0, 51);
+    border: solid 2px rgb(0, 0, 51);
     border-radius: 20px;
     background-color: rgb(0, 0, 51);
+  }
+  select:hover {
+    color: white;
+    border: solid 2px white;
+    background-color: grey;
+    box-shadow: 5px 5px 8px #c0c0c0;
+    font-weight: bold;
+    cursor: pointer;
   }
 
   .ascending {
@@ -89,6 +97,14 @@ select {
     margin: 0px 5px;
     font-family: 'Roboto Slab', serif;
   }
+  .ascending:hover {
+    color: white;
+    background-color: grey;
+    box-shadow: 5px 5px 8px #c0c0c0;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
   .button-container {
     display: grid;
     grid-template-columns: 1.5fr 3fr;
